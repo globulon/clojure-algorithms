@@ -31,14 +31,12 @@
               sum (+ n (recompose r))
               dsum (decompose sum)]
             (if (= dsum (reverse dsum))
-                  (do
-                    (println num " is " sum)
-                    true)
+                  true
                   (recur sum (inc iter))))))]
     (lychrel-iter num 0)))
 
 (defn count-lychrel-numbers[]
-  (- 10000N (count (filter lychrel? (range 1N 10001N)))))
+  (time (count (filter (fn [item] (not (lychrel? item))) (range 1N 10001N)))))
 
 
 
