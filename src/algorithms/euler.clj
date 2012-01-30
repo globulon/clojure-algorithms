@@ -3,6 +3,7 @@
 	(:use algorithms.coins)
   	(:use algorithms.primes)
   	(:use algorithms.matrix)
+  (:use algorithms.lychrel)
 	(:use [clojure.contrib.io :only [read-lines]]))
 
 (defn div-by [n]
@@ -121,3 +122,6 @@
 
 (defn problem-thirty-one[]
 	(combinations-for 200))
+
+(defn problem-fifty-five[]
+  (count-lychrel-numbers))
