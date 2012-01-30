@@ -30,7 +30,7 @@
         (let [r (vec (reverse (decompose n)))
               sum (+ n (recompose r))
               dsum (decompose sum)]
-            (if (= dsum (reverse dsum))
+            (if (palindrome? sum)
                   true
                   (recur sum (inc iter))))))]
     (lychrel-iter num 0)))
