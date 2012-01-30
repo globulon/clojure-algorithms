@@ -18,10 +18,6 @@
              [0N 10N]
              (drop 1 tenth)))))
 
-(defn palindrome? [n]
-  (let [projection (decompose n)]
-    (= (reverse projection) projection)))
-
 (defn lychrel? [num]
   (letfn
     [(lychrel-iter [n iter]
@@ -30,7 +26,7 @@
         (let [r (vec (reverse (decompose n)))
               sum (+ n (recompose r))
               dsum (decompose sum)]
-            (if (palindrome? sum)
+            (if (= dsum (reverse dsum))
                   true
                   (recur sum (inc iter))))))]
     (lychrel-iter num 0)))
