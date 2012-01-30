@@ -36,7 +36,11 @@
     (lychrel-iter num 0)))
 
 (defn count-lychrel-numbers[]
-  (time (count (filter (fn [item] (not (lychrel? item))) (range 1N 10001N)))))
+  (time
+    (count
+      (filter
+        (fn [item] (not (lychrel? item)))
+        (range 1N 10001N)))))
 
 
 
