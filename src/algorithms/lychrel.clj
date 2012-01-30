@@ -11,32 +11,34 @@
     (decompose-iter n [])))
 
 (defn recompose [tenth]
-  (+
-    (first tenth)
-    (first (reduce
-             (fn [[sum power] current] [(+ sum (* power current)) (* 10N power)])
-             [0N 10N]
-             (drop 1 tenth)))))
+  (reduce +
+    (map
+      first
+      [tenth
+       (reduce
+         (fn [[sum power] current] [(+ sum (* power current)) (* 10 N power)])
+         [0 N 10 N]
+         (drop 1 tenth))])))
 
 (defn lychrel? [num]
   (letfn
     [(lychrel-iter [n iter]
-      (if (= 50 iter )
-        false
-        (let [r (vec (reverse (decompose n)))
-              sum (+ n (recompose r))
-              dsum (decompose sum)]
-            (if (= dsum (reverse dsum))
-                  true
-                  (recur sum (inc iter))))))]
+       (if (= 50 iter)
+         false
+         (let [r (vec (reverse (decompose n)))
+               sum (+ n (recompose r))
+               dsum (decompose sum)]
+           (if (= dsum (reverse dsum))
+             true
+             (recur sum (inc iter))))))]
     (lychrel-iter num 0)))
 
-(defn count-lychrel-numbers[]
+(defn count-lychrel-numbers []
   (time
     (count
       (filter
         (fn [item] (not (lychrel? item)))
-        (range 1N 10001N)))))
+        (range 1 N 10001 N)))))
 
 
 
