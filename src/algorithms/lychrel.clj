@@ -16,8 +16,8 @@
       first
       [tenth
        (reduce
-         (fn [[sum power] current] [(+ sum (* power current)) (* 10 N power)])
-         [0 N 10 N]
+         (fn [[sum power] current] [(+ sum (* power current)) (* 10N power)])
+         [0N 10N]
          (drop 1 tenth))])))
 
 (defn lychrel? [num]
@@ -38,7 +38,7 @@
     (count
       (filter
         (fn [item] (not (lychrel? item)))
-        (range 1 N 10001 N)))))
+        (range 1N 10001N)))))
 
 
 
