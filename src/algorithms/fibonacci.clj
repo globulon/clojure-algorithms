@@ -6,4 +6,3 @@
 		(lazy-seq
 			(cons a (fibo-seq b (+ a b))))))
 
-			

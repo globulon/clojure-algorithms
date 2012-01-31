@@ -4,6 +4,7 @@
   	(:use algorithms.primes)
   	(:use algorithms.matrix)
   (:use algorithms.lychrel)
+  (:use algorithms.core)
 	(:use [clojure.contrib.io :only [read-lines]]))
 
 (defn div-by [n]
@@ -122,6 +123,11 @@
 
 (defn problem-thirty-one[]
 	(combinations-for 200))
+
+(defn problem-fifty-two[]
+  (time (take 1 (drop-while #(not (= 1 (count (set (map (comp sort str (partial * %)) [2 3 4 5 6]))))) (iterate inc 1)))))
+
+
 
 (defn problem-fifty-five[]
   (count-lychrel-numbers))
